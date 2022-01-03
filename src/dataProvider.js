@@ -3,6 +3,7 @@ import { stringify } from "query-string";
 import axios from "axios";
 
 const apiUrl = process.env.REACT_APP_URL;
+let dataLength = 0;
 // const cookies = sessionStorage.getItem("cookie");
 // console.log(cookies);
 // const httpClient = fetchUtils.fetchJson;
@@ -26,9 +27,12 @@ export default {
 			filter: JSON.stringify(params.filter),
 		};
 
-		const dataLength = await axios
+		dataLength = await axios
 			.get(`${apiUrl}/${resource}`)
 			.then((res) => res.data.length);
+		// const dataLength = await axios
+		// 	.get(`${apiUrl}/${resource}`)
+		// 	.then((res) => res.data.length);
 
 		const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
@@ -69,8 +73,10 @@ export default {
 	// 	});
 	// },
 
-	getOne: (resource, params) =>
-		axios
+	getOne: (resource, params) => {
+		console.log(params.id);
+		console.log(params);
+		return axios
 			.get(`${apiUrl}/${resource}/${params.id}`)
 			.then((recordFound) => {
 				return {
@@ -80,7 +86,8 @@ export default {
 					},
 				};
 			})
-			.catch((err) => alert(err.response.data.message)),
+			.catch((err) => alert(err.response.data.message));
+	},
 	// getOne: (resource, params) =>
 	// 	httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
 	// 		data: json,
@@ -135,19 +142,26 @@ export default {
 	// 	}));
 	// },
 
-	create: (resource, params) =>
-		axios({
+	create: (resource, params) => {
+		// params.data = { ...params.data, id: params.data.id_color };
+
+		console.log(params);
+		return axios({
 			method: "post",
 			url: `${apiUrl}/${resource}`,
 			data: params.data,
 		})
-			.then((recordCreated) => ({
-				data: {
-					id: recordCreated[Object.keys(recordCreated)[0]],
-					...recordCreated,
-				},
-			}))
-			.catch((err) => alert(err.response.data.message)),
+			.then((recordCreated) => {
+				console.log(recordCreated);
+				return {
+					data: {
+						id: recordCreated[Object.keys(recordCreated)[0]],
+						...recordCreated,
+					},
+				};
+			})
+			.catch((err) => alert(err.response.data.message));
+	},
 	// create: (resource, params) =>
 	// 	httpClient(`${apiUrl}/${resource}`, {
 	// 		method: "POST",

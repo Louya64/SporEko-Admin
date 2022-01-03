@@ -5,11 +5,13 @@ import {
 	SimpleList,
 	Datagrid,
 	TextField,
+	NumberField,
 	EditButton,
 	Edit,
 	Create,
 	SimpleForm,
 	TextInput,
+	NumberInput,
 } from "react-admin";
 import { ColorField, ColorInput } from "react-admin-color-input";
 
@@ -24,7 +26,7 @@ export const ColorList = (props) => {
 				/>
 			) : (
 				<Datagrid>
-					<TextField source="id" />
+					<NumberField label="id" source="id_color" />
 					<TextField source="name" />
 					<ColorField source="color_code" />
 					<EditButton />
@@ -41,18 +43,22 @@ const ColorTitle = ({ record }) => {
 export const ColorEdit = (props) => (
 	<Edit title={<ColorTitle />} {...props}>
 		<SimpleForm>
-			<TextInput source="id" />
+			<NumberInput label="id" disabled source="id_color" />
 			<TextInput source="name" />
 			<ColorInput source="color_code" />
 		</SimpleForm>
 	</Edit>
 );
 
-export const ColorCreate = (props) => (
-	<Create {...props}>
-		<SimpleForm>
-			<TextInput source="name" />
-			<ColorInput source="color_code" />
-		</SimpleForm>
-	</Create>
-);
+export const ColorCreate = (props) => {
+	console.log(props);
+	return (
+		<Create {...props}>
+			<SimpleForm>
+				<NumberInput label="id" source="id" />
+				<TextInput source="name" />
+				<ColorInput source="color_code" />
+			</SimpleForm>
+		</Create>
+	);
+};

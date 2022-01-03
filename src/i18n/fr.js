@@ -10,27 +10,6 @@ export default {
 	},
 	...frenchMessages,
 	resources: {
-		posts: {
-			name: "Article |||| Articles",
-			fields: {
-				average_note: "Note moyenne",
-				body: "Contenu",
-				comments: "Commentaires",
-				commentable: "Commentable",
-				commentable_short: "Com.",
-				created_at: "Créé le",
-				notifications: "Destinataires de notifications",
-				nb_view: "Nb de vues",
-				password: "Mot de passe (si protégé)",
-				pictures: "Photos associées",
-				published_at: "Publié le",
-				teaser: "Description",
-				tags: "Catégories",
-				title: "Titre",
-				views: "Vues",
-				authors: "Auteurs",
-			},
-		},
 		colors: {
 			name: "Couleur |||| Couleurs",
 			fields: {
