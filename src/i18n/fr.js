@@ -18,20 +18,62 @@ export default {
 				color: "Couleur",
 			},
 		},
-		colissimos: {
-			name: "Colissimo |||| Colissimos",
-			fields: {
-				name: "Nom",
-				weight: "Poids",
-				price: "Prix",
-			},
-		},
-		genders: {
-			name: "Genre |||| Genres",
+		athletics: {
+			name: "Style de sportif |||| Styles de sportif",
 			fields: {
 				name: "Nom",
 			},
 		},
+		brands: {
+			name: "Marque |||| Marques",
+			fields: {
+				name: "Nom",
+			},
+		},
+		conditions: {
+			name: "État |||| États",
+			fields: {
+				name: "Nom",
+			},
+		},
+		countries: {
+			name: "Pays |||| Pays",
+			fields: {
+				name: "Nom",
+			},
+		},
+		deliverers: {
+			name: "Livreur |||| Livreurs",
+			fields: {
+				name: "Nom",
+			},
+		},
+		sports: {
+			name: "Sport |||| Sports",
+			fields: {
+				name: "Nom",
+			},
+		},
+		textiles: {
+			name: "Matière |||| Matières",
+			fields: {
+				name: "Nom",
+			},
+		},
+		// colissimos: {
+		// 	name: "Colissimo |||| Colissimo",
+		// 	fields: {
+		// 		name: "Nom",
+		// 		weight: "Poids",
+		// 		price: "Prix",
+		// 	},
+		// },
+		// genders: {
+		// 	name: "Genre |||| Genres",
+		// 	fields: {
+		// 		name: "Nom",
+		// 	},
+		// },
 		users: {
 			name: "Utilisateur |||| Utilisateurs",
 			fields: {

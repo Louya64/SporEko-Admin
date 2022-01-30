@@ -1,5 +1,6 @@
 import axios from "axios";
-import jwt from "jsonwebtoken";
+
+console.log(`${process.env.REACT_APP_URL}/login`);
 
 export default {
 	login: async ({ username, password }) => {
@@ -10,13 +11,16 @@ export default {
 				email: username,
 				password: password,
 			},
-		}).then((r) => {
-			const user = jwt.verify(r.data, process.env.REACT_APP_PRIVATE_KEY);
-			return user;
+		}).then((res) => {
+			if (res.data.admin) {
+				const user = res.data;
+				return user;
+			}
+			return false;
 		});
 		if (!sessionStorage.getItem("username")) {
 			sessionStorage.setItem("username", data.pseudo);
-			sessionStorage.setItem("avatar", data.avatar);
+			sessionStorage.setItem("avatar", data.picture);
 			sessionStorage.setItem("role", data.admin === 1 ? "admin" : "");
 		}
 		return data;
@@ -46,6 +50,6 @@ export default {
 		Promise.resolve({
 			id: sessionStorage.getItem("username"),
 			fullName: sessionStorage.getItem("username"),
-			avatar: localStorage.getItem("avatar"),
+			avatar: sessionStorage.getItem("avatar"),
 		}),
 };

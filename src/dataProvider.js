@@ -19,27 +19,45 @@ let dataLength = 0;
 
 export default {
 	getList: async (resource, params) => {
-		const { page, perPage } = params.pagination;
-		const { field, order } = params.sort;
+		console.log(params.pagination);
+		console.log(params.sort);
+		// const { page, perPage } = params.pagination;
+		// const { field, order } = params.sort;
 		const query = {
-			sort: JSON.stringify([field, order]),
-			range: JSON.stringify([(page - 1) * perPage, perPage]),
-			filter: JSON.stringify(params.filter),
+			sortBy: JSON.stringify(params.sort.field),
+			order: JSON.stringify(params.sort.order),
+			firstItem: JSON.stringify(
+				(params.pagination.page - 1) * params.pagination.perPage
+			),
+			limit: JSON.stringify(params.pagination.perPage),
+			// filter: JSON.stringify(params.filter),
+			// sort: JSON.stringify([field, order]),
+			// range: JSON.stringify([(page - 1) * perPage, perPage]),
+			// filter: JSON.stringify(params.filter),
 		};
+		console.log(`${apiUrl}/${resource}?${stringify(query)}`);
+		// console.log("dfg");
 
-		dataLength = await axios
-			.get(`${apiUrl}/${resource}`)
-			.then((res) => res.data.length);
+		const dataLength = await axios.get(`${apiUrl}/${resource}`).then((res) => {
+			console.log(res.data.length);
+			return res.data.length;
+		});
+		// console.log("dfg");
 		// const dataLength = await axios
 		// 	.get(`${apiUrl}/${resource}`)
 		// 	.then((res) => res.data.length);
 
 		const url = `${apiUrl}/${resource}?${stringify(query)}`;
+		// console.log(url);
 
 		return axios
-			.get(url)
-			.then((res) => res.data)
+			.get(url, { withCredentials: true })
+			.then((res) => {
+				console.log(res.data);
+				return res.data;
+			})
 			.then((data) => {
+				console.log(data);
 				return {
 					data: data.map((elem) => {
 						return {
@@ -48,6 +66,7 @@ export default {
 						};
 					}),
 					total: dataLength,
+					// total: data.length,
 				};
 			})
 			.catch((err) => alert(err.response.data.message));

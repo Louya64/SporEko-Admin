@@ -10,25 +10,18 @@ import {
 	Create,
 	SimpleForm,
 	TextInput,
-	NumberInput,
 } from "react-admin";
 
-export const ColissimoList = (props) => {
+export const AthleticList = (props) => {
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 	return (
 		<List {...props}>
 			{isSmall ? (
-				<SimpleList
-					primaryText={(record) => record.name}
-					secondaryText={(record) => record.weight}
-					tertiaryText={(record) => record.price}
-				/>
+				<SimpleList primaryText={(record) => record.name} />
 			) : (
 				<Datagrid>
 					<TextField source="id" />
 					<TextField source="name" />
-					<TextField source="weight" />
-					<TextField source="price" />
 					<EditButton />
 				</Datagrid>
 			)}
@@ -36,27 +29,23 @@ export const ColissimoList = (props) => {
 	);
 };
 
-const ColissimoTitle = ({ record }) => {
-	return <span>Colissimo {record ? `"${record.name}"` : ""}</span>;
+const AthleticTitle = ({ record }) => {
+	return <span>Style de sportif {record ? `"${record.name}"` : ""}</span>;
 };
 
-export const ColissimoEdit = (props) => (
-	<Edit title={<ColissimoTitle />} {...props}>
+export const AthleticEdit = (props) => (
+	<Edit title={<AthleticTitle />} {...props}>
 		<SimpleForm>
 			<TextInput source="id" />
 			<TextInput source="name" />
-			<TextInput source="weight" />
-			<NumberInput source="price" />
 		</SimpleForm>
 	</Edit>
 );
 
-export const ColissimoCreate = (props) => (
+export const AthleticCreate = (props) => (
 	<Create {...props}>
 		<SimpleForm>
 			<TextInput source="name" />
-			<TextInput source="weight" />
-			<NumberInput source="price" />
 		</SimpleForm>
 	</Create>
 );

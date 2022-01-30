@@ -12,7 +12,7 @@ import {
 	TextInput,
 } from "react-admin";
 
-export const GenderList = (props) => {
+export const SportList = (props) => {
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 	return (
 		<List {...props}>
@@ -29,12 +29,12 @@ export const GenderList = (props) => {
 	);
 };
 
-const GenderTitle = ({ record }) => {
-	return <span>Genre {record ? `"${record.name}"` : ""}</span>;
+const SportTitle = ({ record }) => {
+	return <span>Sports {record ? `"${record.name}"` : ""}</span>;
 };
 
-export const GenderEdit = (props) => (
-	<Edit title={<GenderTitle />} {...props}>
+export const SportEdit = (props) => (
+	<Edit title={<SportTitle />} {...props}>
 		<SimpleForm>
 			<TextInput source="id" />
 			<TextInput source="name" />
@@ -42,7 +42,7 @@ export const GenderEdit = (props) => (
 	</Edit>
 );
 
-export const GenderCreate = (props) => (
+export const SportCreate = (props) => (
 	<Create {...props}>
 		<SimpleForm>
 			<TextInput source="name" />
