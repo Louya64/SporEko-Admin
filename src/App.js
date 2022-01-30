@@ -40,6 +40,24 @@ import {
 	TextileEdit,
 	TextileCreate,
 } from "./components/otherEntities/textiles";
+import {
+	Deliverer_priceList,
+	Deliverer_priceEdit,
+	Deliverer_priceCreate,
+} from "./components/deliverers/deliverer_prices";
+import {
+	ItemList,
+	ItemEdit,
+	ItemCreate,
+} from "./components/otherEntities/items";
+import { CategoryList } from "./components/otherEntities/categories";
+import { Size_typeList } from "./components/otherEntities/size_types";
+import { GenderList } from "./components/otherEntities/genders";
+import {
+	SizeList,
+	SizeEdit,
+	SizeCreate,
+} from "./components/otherEntities/sizes";
 import { UserList, UserEdit, UserCreate } from "./components/users/users";
 import Dashboard from "./components/Dashboard";
 import authProvider from "./authProvider";
@@ -48,7 +66,8 @@ import i18nProvider from "./i18nProvider";
 import Layout from "./components/Layout";
 import ColorLensIcon from "@material-ui/icons/ColorLens";
 import WcIcon from "@material-ui/icons/Wc";
-import UserIcon from "@material-ui/icons/Group";
+// import UserIcon from "@material-ui/icons/Group";
+import CloseIcon from "@material-ui/icons/Close";
 
 const App = () => (
 	<Admin
@@ -105,7 +124,7 @@ const App = () => (
 			list={SportList}
 			edit={SportEdit}
 			create={SportCreate}
-			icon={WcIcon}
+			icon={CloseIcon}
 		/>
 		<Resource
 			name="textiles"
@@ -114,13 +133,37 @@ const App = () => (
 			create={TextileCreate}
 			icon={WcIcon}
 		/>
+		<Resource
+			name="deliverer_prices"
+			list={Deliverer_priceList}
+			edit={Deliverer_priceEdit}
+			create={Deliverer_priceCreate}
+			icon={WcIcon}
+		/>
+		<Resource
+			name="items"
+			list={ItemList}
+			edit={ItemEdit}
+			create={ItemCreate}
+			icon={WcIcon}
+		/>
+		<Resource name="categories" list={CategoryList} icon={CloseIcon} />
+		<Resource name="size_types" list={Size_typeList} icon={CloseIcon} />
+		<Resource name="genders" list={GenderList} icon={CloseIcon} />
+		<Resource
+			name="sizes"
+			list={SizeList}
+			edit={SizeEdit}
+			create={SizeCreate}
+			icon={WcIcon}
+		/>
 		{/*  */}
 		<Resource
 			name="users"
 			list={UserList}
 			edit={UserEdit}
 			create={UserCreate}
-			icon={UserIcon}
+			icon={CloseIcon}
 		/>
 	</Admin>
 );

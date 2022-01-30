@@ -55,7 +55,7 @@ export const ColorCreate = (props) => {
 	return (
 		<Create {...props}>
 			<SimpleForm>
-				<NumberInput label="id" source="id" />
+				{/* <NumberInput label="id" source="id" /> */}
 				<TextInput source="name" />
 				<ColorInput source="color_code" />
 			</SimpleForm>

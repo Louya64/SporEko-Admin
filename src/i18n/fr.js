@@ -60,6 +60,52 @@ export default {
 				name: "Nom",
 			},
 		},
+		deliverer_prices: {
+			name: "Prix des livreurs |||| Prix des livreurs",
+			fields: {
+				name: "Nom",
+				min_weight: "Poids min (en grammes)",
+				max_weight: "Poids max (en grammes)",
+				price: "Prix",
+				id_deliverer: "Livreur",
+			},
+		},
+		items: {
+			name: "Article |||| Articles",
+			fields: {
+				name: "Nom",
+				id_category: "Catégorie",
+				id_size_type: "Type de taille",
+			},
+		},
+		categories: {
+			name: "Catégorie |||| Catégories",
+			fields: {
+				name: "Nom",
+			},
+		},
+		size_types: {
+			name: "Type de taille |||| Types de taille",
+			fields: {
+				name: "Nom",
+			},
+		},
+		genders: {
+			name: "Genre |||| Genres",
+			fields: {
+				adult_name: "Nom pour un adulte",
+				child_name: "Nom pour un enfant",
+			},
+		},
+		sizes: {
+			name: "Taille |||| Tailles",
+			fields: {
+				id_gender: "Genre",
+				name: "Nom",
+				is_child: "Enfant ?",
+				id_size_type: "Type de taille",
+			},
+		},
 		// colissimos: {
 		// 	name: "Colissimo |||| Colissimo",
 		// 	fields: {
