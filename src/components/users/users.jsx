@@ -52,6 +52,7 @@ export const UserEdit = (props) => (
 			<TextInput source="id" />
 			<TextInput source="lastname" />
 			<TextInput source="firstname" />
+			<TextInput source="pseudo" />
 			<TextInput source="adress" />
 			<NumberInput source="zipcode" />
 			<TextInput source="city" />

@@ -9,6 +9,7 @@ import {
 	NumberField,
 	ReferenceField,
 	EditButton,
+	ShowButton,
 	Edit,
 	SimpleForm,
 	TextInput,
@@ -28,23 +29,23 @@ export const OfferList = (props) => {
 					{/* <ReferenceField source="id_user_seller" reference="users">
 						<TextField source="pseudo" />
 					</ReferenceField> */}
-					<TextField source="picture1" />
+					{/* <TextField source="picture1" /> */}
 					<TextField source="title" />
 					<TextField source="description" />
 					<ReferenceField source="id_sport" reference="sports">
 						<TextField source="name" />
 					</ReferenceField>
-					<ReferenceField source="id_gender" reference="genders">
+					{/* <ReferenceField source="id_gender" reference="genders">
 						<TextField source="name" />
 					</ReferenceField>
 					<BooleanNumField source="is_child" />
 					<ReferenceField source="id_category" reference="categories">
 						<TextField source="name" />
-					</ReferenceField>
+					</ReferenceField> */}
 					<ReferenceField source="id_item" reference="items">
 						<TextField source="name" />
 					</ReferenceField>
-					<ReferenceField source="id_brand" reference="brands">
+					{/* <ReferenceField source="id_brand" reference="brands">
 						<TextField source="name" />
 					</ReferenceField>
 					<ReferenceField source="id_textile" reference="textiles">
@@ -57,8 +58,8 @@ export const OfferList = (props) => {
 							<TextField source="size_uk" />/
 							<TextField source="age_child" />
 						</>
-					</ReferenceField>
-					<ReferenceField source="id_color1" reference="colors">
+					</ReferenceField> */}
+					{/* <ReferenceField source="id_color1" reference="colors">
 						<TextField source="name" />
 					</ReferenceField>
 					<ReferenceField source="id_color2" reference="colors">
@@ -66,17 +67,18 @@ export const OfferList = (props) => {
 					</ReferenceField>
 					<ReferenceField source="id_condition" reference="conditions">
 						<TextField source="name" />
-					</ReferenceField>
+					</ReferenceField> */}
 					<NumberField source="price" />
-					<NumberField source="weight" />
+					{/* <NumberField source="weight" /> */}
 					{/* <ReferenceField source="id_user_buyer" reference="users">
 						<TextField source="pseudo" />
 					</ReferenceField> */}
-					<TextField source="purchase_date" />
-					<NumberField source="hand_delivery" />
+					{/* <TextField source="purchase_date" />
+					<NumberField source="hand_delivery" /> */}
 					<BooleanNumField source="is_archived" />
 					<BooleanNumField source="is_draft" />
 					<EditButton />
+					<ShowButton />
 				</Datagrid>
 			)}
 		</List>

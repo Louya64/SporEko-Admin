@@ -11,7 +11,10 @@ export default {
 				email: username,
 				password: password,
 			},
+			withCredentials: true,
 		}).then((res) => {
+			console.log(res.cookie);
+			console.log(res);
 			if (res.data.admin) {
 				const user = res.data;
 				return user;

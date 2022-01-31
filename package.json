@@ -17,6 +17,7 @@
 		"ra-language-french": "^3.19.5",
 		"react": "^16.14.0",
 		"react-admin": "^3.19.4",
+		"react-cookie": "^4.1.1",
 		"react-dom": "^16.14.0",
 		"react-scripts": "4.0.3",
 		"web-vitals": "^1.1.2"
