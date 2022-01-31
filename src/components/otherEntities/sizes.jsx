@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useMediaQuery } from "@material-ui/core";
+import BooleanNumField from "../BooleanNumField";
 import {
 	List,
 	SimpleList,
@@ -29,7 +30,7 @@ export const SizeList = (props) => {
 					<ReferenceField source="id_gender" reference="genders">
 						<TextField source="name" />
 					</ReferenceField>
-					<NumberField source="is_child" />
+					<BooleanNumField source="is_child" />
 					<ReferenceField source="id_size_type" reference="size_types">
 						<TextField source="name" />
 					</ReferenceField>

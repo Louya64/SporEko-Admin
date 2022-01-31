@@ -58,6 +58,7 @@ import {
 	SizeEdit,
 	SizeCreate,
 } from "./components/otherEntities/sizes";
+import { OfferList, OfferEdit } from "./components/offers/offers";
 import { UserList, UserEdit, UserCreate } from "./components/users/users";
 import Dashboard from "./components/Dashboard";
 import authProvider from "./authProvider";
@@ -66,8 +67,20 @@ import i18nProvider from "./i18nProvider";
 import Layout from "./components/Layout";
 import ColorLensIcon from "@material-ui/icons/ColorLens";
 import WcIcon from "@material-ui/icons/Wc";
-// import UserIcon from "@material-ui/icons/Group";
-import CloseIcon from "@material-ui/icons/Close";
+import SportsHandballIcon from "@material-ui/icons/SportsHandball";
+import SortByAlphaIcon from "@material-ui/icons/SortByAlpha";
+import BrokenImageIcon from "@material-ui/icons/BrokenImage";
+import FlagIcon from "@material-ui/icons/Flag";
+import SendIcon from "@material-ui/icons/Send";
+import FilterVintageIcon from "@material-ui/icons/FilterVintage";
+import EuroIcon from "@material-ui/icons/Euro";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import HeightIcon from "@material-ui/icons/Height";
+import FormatSizeIcon from "@material-ui/icons/FormatSize";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import SportsTennisIcon from "@material-ui/icons/SportsTennis";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ListIcon from "@material-ui/icons/List";
 
 const App = () => (
 	<Admin
@@ -89,81 +102,82 @@ const App = () => (
 			list={AthleticList}
 			edit={AthleticEdit}
 			create={AthleticCreate}
-			icon={WcIcon}
+			icon={SportsHandballIcon}
 		/>
 		<Resource
 			name="brands"
 			list={BrandList}
 			edit={BrandEdit}
 			create={BrandCreate}
-			icon={WcIcon}
+			icon={SortByAlphaIcon}
 		/>
 		<Resource
 			name="conditions"
 			list={ConditionList}
 			edit={ConditionEdit}
 			create={ConditionCreate}
-			icon={WcIcon}
+			icon={BrokenImageIcon}
 		/>
 		<Resource
 			name="countries"
 			list={CountryList}
 			edit={CountryEdit}
 			create={CountryCreate}
-			icon={WcIcon}
+			icon={FlagIcon}
 		/>
 		<Resource
 			name="deliverers"
 			list={DelivererList}
 			edit={DelivererEdit}
 			create={DelivererCreate}
-			icon={WcIcon}
+			icon={SendIcon}
 		/>
 		<Resource
 			name="sports"
 			list={SportList}
 			edit={SportEdit}
 			create={SportCreate}
-			icon={CloseIcon}
+			icon={SportsTennisIcon}
 		/>
 		<Resource
 			name="textiles"
 			list={TextileList}
 			edit={TextileEdit}
 			create={TextileCreate}
-			icon={WcIcon}
+			icon={FilterVintageIcon}
 		/>
 		<Resource
 			name="deliverer_prices"
 			list={Deliverer_priceList}
 			edit={Deliverer_priceEdit}
 			create={Deliverer_priceCreate}
-			icon={WcIcon}
+			icon={EuroIcon}
 		/>
 		<Resource
 			name="items"
 			list={ItemList}
 			edit={ItemEdit}
 			create={ItemCreate}
-			icon={WcIcon}
+			icon={AddShoppingCartIcon}
 		/>
-		<Resource name="categories" list={CategoryList} icon={CloseIcon} />
-		<Resource name="size_types" list={Size_typeList} icon={CloseIcon} />
-		<Resource name="genders" list={GenderList} icon={CloseIcon} />
+		<Resource name="categories" list={CategoryList} icon={ArrowForwardIcon} />
+		<Resource name="size_types" list={Size_typeList} icon={FormatSizeIcon} />
+		<Resource name="genders" list={GenderList} icon={WcIcon} />
 		<Resource
 			name="sizes"
 			list={SizeList}
 			edit={SizeEdit}
 			create={SizeCreate}
-			icon={WcIcon}
+			icon={HeightIcon}
 		/>
+		<Resource name="offers" list={OfferList} edit={OfferEdit} icon={ListIcon} />
 		{/*  */}
 		<Resource
 			name="users"
 			list={UserList}
 			edit={UserEdit}
 			create={UserCreate}
-			icon={CloseIcon}
+			icon={AccountCircleIcon}
 		/>
 	</Admin>
 );

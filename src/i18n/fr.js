@@ -106,6 +106,53 @@ export default {
 				id_size_type: "Type de taille",
 			},
 		},
+		offers: {
+			name: "Annonce |||| Annonces",
+			fields: {
+				creation_date: "Date de création",
+				id_user_seller: "Vendeur",
+				picture1: "Photo 1",
+				title: "Titre",
+				description: "Description",
+				id_sport: "Sport",
+				id_gender: "Genre",
+				is_child: "Enfant ?",
+				id_category: "Catégorie",
+				id_item: "Article",
+				id_brand: "Marque",
+				id_textile: "Matière",
+				id_size: "Taille",
+				id_color1: "Couleur 1",
+				id_color2: "Couleur 2",
+				id_condition: "État",
+				price: "Prix",
+				weight: "Weight",
+				id_user_buyer: "Acheteur",
+				purchase_date: "Date d'achat",
+				hand_delivery: "Remise en main propre ?",
+				is_archived: "Archivé ?",
+				is_draft: "Brouillon ?",
+				picture2: "Photo 2",
+				picture3: "Photo 3",
+				picture4: "Photo 4",
+				picture5: "Photo 5",
+				picture6: "Photo 6",
+				picture7: "Photo 7",
+				picture8: "Photo 8",
+				picture9: "Photo 9",
+				picture10: "Photo 10",
+				picture11: "Photo 11",
+				picture12: "Photo 12",
+				picture13: "Photo 13",
+				picture14: "Photo 14",
+				picture15: "Photo 15",
+				picture16: "Photo 16",
+				picture17: "Photo 17",
+				picture18: "Photo 18",
+				picture19: "Photo 19",
+				picture20: "Photo 20",
+			},
+		},
 		// colissimos: {
 		// 	name: "Colissimo |||| Colissimo",
 		// 	fields: {
@@ -145,35 +192,35 @@ export default {
 			},
 		},
 	},
-	post: {
-		list: {
-			search: "Recherche",
-		},
-		form: {
-			summary: "Résumé",
-			body: "Contenu",
-			miscellaneous: "Extra",
-			comments: "Commentaires",
-		},
-		edit: {
-			title: 'Article "%{title}"',
-		},
-	},
-	comment: {
-		list: {
-			about: "Au sujet de",
-		},
-	},
-	user: {
-		list: {
-			search: "Recherche",
-		},
-		form: {
-			summary: "Résumé",
-			security: "Sécurité",
-		},
-		edit: {
-			title: 'Utilisateur "%{title}"',
-		},
-	},
+	// post: {
+	// 	list: {
+	// 		search: "Recherche",
+	// 	},
+	// 	form: {
+	// 		summary: "Résumé",
+	// 		body: "Contenu",
+	// 		miscellaneous: "Extra",
+	// 		comments: "Commentaires",
+	// 	},
+	// 	edit: {
+	// 		title: 'Article "%{title}"',
+	// 	},
+	// },
+	// comment: {
+	// 	list: {
+	// 		about: "Au sujet de",
+	// 	},
+	// },
+	// user: {
+	// 	list: {
+	// 		search: "Recherche",
+	// 	},
+	// 	form: {
+	// 		summary: "Résumé",
+	// 		security: "Sécurité",
+	// 	},
+	// 	edit: {
+	// 		title: 'Utilisateur "%{title}"',
+	// 	},
+	// },
 };
