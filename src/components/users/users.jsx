@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useMediaQuery } from "@material-ui/core";
+import BooleanNumField from "../BooleanNumField";
+
 import {
 	List,
 	SimpleList,
