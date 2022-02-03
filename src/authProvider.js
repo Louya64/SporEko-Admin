@@ -1,7 +1,5 @@
 import axios from "axios";
 
-console.log(`${process.env.REACT_APP_URL}/login`);
-
 export default {
 	login: async ({ username, password }) => {
 		const data = await axios({
@@ -13,8 +11,6 @@ export default {
 			},
 			withCredentials: true,
 		}).then((res) => {
-			console.log(res.cookie);
-			console.log(res);
 			if (res.data.admin) {
 				const user = res.data;
 				return user;

@@ -5,14 +5,24 @@ import {
 	SimpleList,
 	Datagrid,
 	TextField,
+	NumberField,
+	ImageField,
 	EditButton,
 	Edit,
 	Create,
 	SimpleForm,
 	TextInput,
+	NumberInput,
+	ImageInput,
 } from "react-admin";
 
-export const SportList = (props) => {
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = {
+	image: { maxHeight: "2.5rem" },
+};
+
+export const SportList = withStyles(styles)(({ classes, ...props }) => {
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 	return (
 		<List {...props}>
@@ -20,14 +30,15 @@ export const SportList = (props) => {
 				<SimpleList primaryText={(record) => record.name} />
 			) : (
 				<Datagrid>
-					<TextField source="id" />
+					<NumberField label="id" source="id_sport" />
 					<TextField source="name" />
+					<ImageField source="icon" title="name" classes={classes} />
 					<EditButton />
 				</Datagrid>
 			)}
 		</List>
 	);
-};
+});
 
 const SportTitle = ({ record }) => {
 	return <span>Sports {record ? `"${record.name}"` : ""}</span>;
@@ -36,8 +47,12 @@ const SportTitle = ({ record }) => {
 export const SportEdit = (props) => (
 	<Edit title={<SportTitle />} {...props}>
 		<SimpleForm>
-			<TextInput source="id" />
+			<NumberInput label="id" disabled source="id_sport" />
 			<TextInput source="name" />
+			<ImageInput source="icon" label="Related pictures" accept="image/*">
+				<ImageField source="icon" title="name" />
+			</ImageInput>
+			<TextInput source="icon" />
 		</SimpleForm>
 	</Edit>
 );
@@ -46,6 +61,9 @@ export const SportCreate = (props) => (
 	<Create {...props}>
 		<SimpleForm>
 			<TextInput source="name" />
+			<ImageInput source="icon" label="Related pictures" accept="image/*">
+				<ImageField source="icon" title="name" />
+			</ImageInput>
 		</SimpleForm>
 	</Create>
 );

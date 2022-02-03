@@ -5,17 +5,19 @@ import {
 	SimpleList,
 	Datagrid,
 	TextField,
+	NumberField,
 	EmailField,
 	EditButton,
-	ShowButton,
 	Edit,
 	Create,
 	SimpleForm,
 	TextInput,
+	PasswordInput,
 	NumberInput,
 	ReferenceInput,
 	SelectInput,
 	DateInput,
+	required,
 } from "react-admin";
 
 export const UserList = (props) => {
@@ -29,13 +31,12 @@ export const UserList = (props) => {
 				/>
 			) : (
 				<Datagrid>
-					<TextField source="id" />
+					<NumberField label="id" source="id_user" />
 					<TextField source="pseudo" />
 					<TextField source="lastname" />
 					<TextField source="firstname" />
 					<EmailField source="email" />
 					<EditButton />
-					<ShowButton />
 				</Datagrid>
 			)}
 		</List>
@@ -49,24 +50,39 @@ const UserTitle = ({ record }) => {
 export const UserEdit = (props) => (
 	<Edit title={<UserTitle />} {...props}>
 		<SimpleForm>
-			<TextInput source="id" />
-			<TextInput source="lastname" />
-			<TextInput source="firstname" />
-			<TextInput source="pseudo" />
-			<TextInput source="adress" />
-			<NumberInput source="zipcode" />
-			<TextInput source="city" />
-			<TextInput source="email" />
-			<TextInput source="picture" />
-			<NumberInput source="isadmin" />
-			<NumberInput source="isarchived" />
-			<ReferenceInput source="id_gender" reference="genders">
+			<NumberInput label="id" disabled source="id_user" />
+			<TextInput source="lastname" validate={required()} />
+			<TextInput source="firstname" validate={required()} />
+			<TextInput source="pseudo" validate={required()} />
+			<ReferenceInput
+				validate={required()}
+				source="id_gender"
+				reference="genders"
+			>
+				<SelectInput optionText="adult_name" />
+			</ReferenceInput>
+			<ReferenceInput
+				validate={required()}
+				source="id_country"
+				reference="countries"
+			>
 				<SelectInput source="name" />
 			</ReferenceInput>
-			<TextInput source="adress_complement" />
+			<TextInput source="email" validate={required()} />
+			<PasswordInput source="hash_password" validate={required()} />
+			<TextInput source="address" />
+			<NumberInput source="zipcode" />
+			<TextInput source="city" />
+			<TextInput source="picture" />
+			<NumberInput source="is_admin" />
+			<NumberInput source="is_archived" />
+			<NumberInput source="is_professional" />
+			<TextInput source="address_complement" />
+			<ReferenceInput source="id_athletic" reference="athletics">
+				<SelectInput source="name" />
+			</ReferenceInput>
 			<DateInput source="birthday" />
 			<TextInput source="phone" />
-			<TextInput source="pseudo" />
 		</SimpleForm>
 	</Edit>
 );
@@ -74,22 +90,38 @@ export const UserEdit = (props) => (
 export const UserCreate = (props) => (
 	<Create {...props}>
 		<SimpleForm>
-			<TextInput source="lastname" />
-			<TextInput source="firstname" />
-			<TextInput source="adress" />
-			<NumberInput source="zipcode" />
-			<TextInput source="city" />
-			<TextInput source="email" />
-			<TextInput source="picture" />
-			<NumberInput source="isadmin" />
-			<NumberInput source="isarchived" />
-			<ReferenceInput source="id_gender" reference="genders">
+			<TextInput source="lastname" validate={required()} />
+			<TextInput source="firstname" validate={required()} />
+			<TextInput source="pseudo" validate={required()} />
+			<ReferenceInput
+				validate={required()}
+				source="id_gender"
+				reference="genders"
+			>
+				<SelectInput optionText="adult_name" />
+			</ReferenceInput>
+			<ReferenceInput
+				validate={required()}
+				source="id_country"
+				reference="countries"
+			>
 				<SelectInput source="name" />
 			</ReferenceInput>
-			<TextInput source="adress_complement" />
+			<TextInput source="email" validate={required()} />
+			<PasswordInput source="hash_password" validate={required()} />
+			<TextInput source="address" />
+			<NumberInput source="zipcode" />
+			<TextInput source="city" />
+			<TextInput source="picture" />
+			<NumberInput source="is_admin" />
+			<NumberInput source="is_archived" />
+			<NumberInput source="is_professional" />
+			<TextInput source="address_complement" />
+			<ReferenceInput source="id_athletic" reference="athletics">
+				<SelectInput source="name" />
+			</ReferenceInput>
 			<DateInput source="birthday" />
 			<TextInput source="phone" />
-			<TextInput source="pseudo" />
 		</SimpleForm>
 	</Create>
 );

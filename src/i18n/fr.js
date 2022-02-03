@@ -126,7 +126,7 @@ export default {
 				id_color2: "Couleur 2",
 				id_condition: "État",
 				price: "Prix",
-				weight: "Weight",
+				weight: "Poids",
 				id_user_buyer: "Acheteur",
 				purchase_date: "Date d'achat",
 				hand_delivery: "Remise en main propre ?",
@@ -153,74 +153,29 @@ export default {
 				picture20: "Photo 20",
 			},
 		},
-		// colissimos: {
-		// 	name: "Colissimo |||| Colissimo",
-		// 	fields: {
-		// 		name: "Nom",
-		// 		weight: "Poids",
-		// 		price: "Prix",
-		// 	},
-		// },
-		// genders: {
-		// 	name: "Genre |||| Genres",
-		// 	fields: {
-		// 		name: "Nom",
-		// 	},
-		// },
 		users: {
 			name: "Utilisateur |||| Utilisateurs",
 			fields: {
 				lastname: "Nom",
 				firstname: "Prénom",
-				adress: "Adresse",
+				address: "Adresse",
 				zipcode: "Code postal",
 				city: "Ville",
 				email: "Email",
-				password: "Mot de passe",
-				hash_password: "Mot de passe haché",
+				hash_password: "Mot de passe",
 				picture: "Photo",
-				isadmin: "Admin",
-				isarchived: "Archivé",
+				is_admin: "Admin ?",
+				is_archived: "Archivé ?",
+				is_professional: "Professionnel ?",
 				id_gender: "Genre",
-				adress_complement: "Complément d'adresse",
-				id_sportif_style: "Style de sportif",
+				id_country: "Pays",
+				address_complement: "Complément d'adresse",
+				id_athletic: "Style de sportif",
 				birthday: "Date de naissance",
 				phone: "N° téléphone",
-				creation_date: "Incrit depuis",
+				creation_date: "Date d'inscription",
 				pseudo: "Pseudo",
-				authentified_by_facebook: "Authentifié avec Facebook",
 			},
 		},
 	},
-	// post: {
-	// 	list: {
-	// 		search: "Recherche",
-	// 	},
-	// 	form: {
-	// 		summary: "Résumé",
-	// 		body: "Contenu",
-	// 		miscellaneous: "Extra",
-	// 		comments: "Commentaires",
-	// 	},
-	// 	edit: {
-	// 		title: 'Article "%{title}"',
-	// 	},
-	// },
-	// comment: {
-	// 	list: {
-	// 		about: "Au sujet de",
-	// 	},
-	// },
-	// user: {
-	// 	list: {
-	// 		search: "Recherche",
-	// 	},
-	// 	form: {
-	// 		summary: "Résumé",
-	// 		security: "Sécurité",
-	// 	},
-	// 	edit: {
-	// 		title: 'Utilisateur "%{title}"',
-	// 	},
-	// },
 };

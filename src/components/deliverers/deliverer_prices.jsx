@@ -25,7 +25,7 @@ export const Deliverer_priceList = (props) => {
 				<SimpleList primaryText={(record) => record.name} />
 			) : (
 				<Datagrid>
-					<TextField source="id" />
+					<NumberField label="id" source="id_deliverer_price" />
 					<TextField source="name" />
 					<NumberField source="min_weight" />
 					<NumberField source="max_weight" />
@@ -47,7 +47,7 @@ const Deliverer_priceTitle = ({ record }) => {
 export const Deliverer_priceEdit = (props) => (
 	<Edit title={<Deliverer_priceTitle />} {...props}>
 		<SimpleForm>
-			<TextInput source="id" />
+			<NumberInput label="id" disabled source="id_deliverer_price" />
 			<TextInput source="name" />
 			<NumberInput source="min_weight" />
 			<NumberInput source="max_weight" />

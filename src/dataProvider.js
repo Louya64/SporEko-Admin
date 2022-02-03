@@ -43,8 +43,6 @@ export default {
 	},
 
 	getOne: (resource, params) => {
-		console.log(params.id);
-		console.log(params);
 		return axios
 			.get(`${apiUrl}/${resource}/${params.id}`, { withCredentials: true })
 			.then((recordFound) => {
@@ -84,7 +82,43 @@ export default {
 	},
 
 	create: (resource, params) => {
-		console.log(params);
+		if (params.data.icon) {
+			const newIcon = params.data.icon.rawFile;
+			const formData = new FormData();
+			formData.append("imageSport", newIcon);
+			return axios({
+				method: "post",
+				url: `${apiUrl}/${resource}/${params.id}/image`,
+				data: formData,
+				withCredentials: true,
+				headers: {
+					"Content-Type": "multipart/form-data",
+				},
+			})
+				.then((res) => {
+					return res.data;
+				})
+				.then((iconUrl) => {
+					return axios({
+						method: "post",
+						url: `${apiUrl}/${resource}`,
+						data: { ...params.data, icon: iconUrl },
+						withCredentials: true,
+					})
+						.then((recordCreated) => {
+							return {
+								data: {
+									id: recordCreated[Object.keys(recordCreated)[0]],
+									...recordCreated,
+								},
+							};
+						})
+						.catch((err) => {
+							alert(err.response.data.message);
+						});
+				});
+		}
+
 		return axios({
 			method: "post",
 			url: `${apiUrl}/${resource}`,
@@ -92,7 +126,6 @@ export default {
 			withCredentials: true,
 		})
 			.then((recordCreated) => {
-				console.log(recordCreated);
 				return {
 					data: {
 						id: recordCreated[Object.keys(recordCreated)[0]],
@@ -103,8 +136,43 @@ export default {
 			.catch((err) => alert(err.response.data.message));
 	},
 
-	update: (resource, params) =>
-		axios({
+	update: (resource, params) => {
+		if (params.data.icon) {
+			const newIcon = params.data.icon.rawFile;
+			const formData = new FormData();
+			formData.append("imageSport", newIcon);
+			return axios({
+				method: "post",
+				url: `${apiUrl}/${resource}/${params.id}/image`,
+				data: formData,
+				withCredentials: true,
+				headers: {
+					"Content-Type": "multipart/form-data",
+				},
+			})
+				.then((res) => res.data)
+				.then((iconUrl) => {
+					return axios({
+						method: "put",
+						url: `${apiUrl}/${resource}/${params.id}`,
+						data: { ...params.data, icon: iconUrl },
+						withCredentials: true,
+					})
+						.then((recordUpdated) => {
+							return {
+								data: recordUpdated.data,
+							};
+						})
+						.catch((err) => {
+							alert(err.response.data.message);
+							return {
+								data: { id: params.id },
+							};
+						});
+				});
+		}
+
+		return axios({
 			method: "put",
 			url: `${apiUrl}/${resource}/${params.id}`,
 			data: params.data,
@@ -120,7 +188,8 @@ export default {
 				return {
 					data: { id: params.id },
 				};
-			}),
+			});
+	},
 
 	delete: (resource, params) =>
 		axios({
