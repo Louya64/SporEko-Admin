@@ -31,64 +31,29 @@ export const messages = {
 				authors: "Authors",
 			},
 		},
-		comments: {
-			name: "Comment |||| Comments",
-			fields: {
-				body: "Body",
-				created_at: "Created at",
-				post_id: "Posts",
-				author: {
-					name: "Author",
-				},
-			},
-		},
 		users: {
 			name: "User |||| Users",
 			fields: {
-				name: "Name",
-				role: "Role",
+				lastname: "Lastname",
+				firstname: "Firstname",
+				address: "Address",
+				zipcode: "Zipcode",
+				city: "City",
+				email: "Email",
+				hash_password: "Password",
+				picture: "Picture",
+				is_admin: "Admin ?",
+				is_archived: "Archived ?",
+				is_professional: "Professional ?",
+				id_gender: "Gender",
+				id_country: "Country",
+				adress_complement: "Address complement",
+				id_athletic: "Athletic style",
+				birthday: "Birthday",
+				phone: "Phone",
+				creation_date: "Registration date",
+				pseudo: "Pseudo",
 			},
-		},
-	},
-	post: {
-		list: {
-			search: "Search",
-		},
-		form: {
-			summary: "Summary",
-			body: "Body",
-			miscellaneous: "Miscellaneous",
-			comments: "Comments",
-		},
-		edit: {
-			title: 'Post "%{title}"',
-		},
-		action: {
-			save_and_edit: "Save and Edit",
-			save_and_add: "Save and Add",
-			save_and_show: "Save and Show",
-			save_with_average_note: "Save with Note",
-		},
-	},
-	comment: {
-		list: {
-			about: "About",
-		},
-	},
-	user: {
-		list: {
-			search: "Search",
-		},
-		form: {
-			summary: "Summary",
-			security: "Security",
-		},
-		edit: {
-			title: 'User "%{title}"',
-		},
-		action: {
-			save_and_add: "Save and Add",
-			save_and_show: "Save and Show",
 		},
 	},
 };

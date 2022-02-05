@@ -28,7 +28,7 @@ export const SizeList = (props) => {
 				<Datagrid>
 					<NumberField label="id" source="id_size" />
 					<ReferenceField source="id_gender" reference="genders">
-						<TextField source="name" />
+						<TextField source="adult_name" />
 					</ReferenceField>
 					<BooleanNumField source="is_child" />
 					<ReferenceField source="id_size_type" reference="size_types">
@@ -39,18 +39,7 @@ export const SizeList = (props) => {
 					<TextField source="size_fr" />
 					<TextField source="size_uk" />
 					<TextField source="size_us" />
-					<TextField source="size_foot" />
-					<TextField source="size_chest" />
-					<TextField source="size_pool" />
-					<TextField source="size_jeans" />
 					<TextField source="age_child" />
-					<TextField source="height" />
-					<TextField source="hand_turn" />
-					<TextField source="size_glove" />
-					<TextField source="crotch" />
-					<TextField source="size_bike_inches" />
-					<TextField source="size_bike" />
-					<TextField source="size_wheel" />
 					<EditButton />
 				</Datagrid>
 			)}
@@ -59,7 +48,16 @@ export const SizeList = (props) => {
 };
 
 const SizeTitle = ({ record }) => {
-	return <span>Tailles {record ? `"${record.name}"` : ""}</span>;
+	return (
+		<span>
+			Tailles{" "}
+			{record
+				? `${record.size_int || ""} ${record.size_eu || ""} ${
+						record.size_uk || ""
+				  } ${record.age_child || ""}`
+				: ""}
+		</span>
+	);
 };
 
 export const SizeEdit = (props) => (
@@ -67,7 +65,7 @@ export const SizeEdit = (props) => (
 		<SimpleForm>
 			<NumberInput label="id" disabled source="id_size" />
 			<ReferenceInput source="id_gender" reference="genders">
-				<SelectInput source="name" />
+				<SelectInput optionText="adult_name" />
 			</ReferenceInput>
 			<NumberInput source="is_child" />
 			<ReferenceInput source="id_size_type" reference="size_types">
@@ -78,18 +76,7 @@ export const SizeEdit = (props) => (
 			<TextInput source="size_fr" />
 			<TextInput source="size_uk" />
 			<TextInput source="size_us" />
-			<TextInput source="size_foot" />
-			<TextInput source="size_chest" />
-			<TextInput source="size_pool" />
-			<TextInput source="size_jeans" />
 			<TextInput source="age_child" />
-			<TextInput source="height" />
-			<TextInput source="hand_turn" />
-			<TextInput source="size_glove" />
-			<TextInput source="crotch" />
-			<TextInput source="size_bike_inches" />
-			<TextInput source="size_bike" />
-			<TextInput source="size_wheel" />
 		</SimpleForm>
 	</Edit>
 );
@@ -98,7 +85,7 @@ export const SizeCreate = (props) => (
 	<Create {...props}>
 		<SimpleForm>
 			<ReferenceInput source="id_gender" reference="genders">
-				<SelectInput source="name" />
+				<SelectInput optionText="adult_name" />
 			</ReferenceInput>
 			<NumberInput source="is_child" />
 			<ReferenceInput source="id_size_type" reference="size_types">
@@ -109,18 +96,7 @@ export const SizeCreate = (props) => (
 			<TextInput source="size_fr" />
 			<TextInput source="size_uk" />
 			<TextInput source="size_us" />
-			<TextInput source="size_foot" />
-			<TextInput source="size_chest" />
-			<TextInput source="size_pool" />
-			<TextInput source="size_jeans" />
 			<TextInput source="age_child" />
-			<TextInput source="height" />
-			<TextInput source="hand_turn" />
-			<TextInput source="size_glove" />
-			<TextInput source="crotch" />
-			<TextInput source="size_bike_inches" />
-			<TextInput source="size_bike" />
-			<TextInput source="size_wheel" />
 		</SimpleForm>
 	</Create>
 );

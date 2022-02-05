@@ -5,6 +5,7 @@ import {
 	SimpleList,
 	Datagrid,
 	TextField,
+	NumberField,
 	EditButton,
 	Edit,
 	Create,
@@ -20,7 +21,7 @@ export const DelivererList = (props) => {
 				<SimpleList primaryText={(record) => record.name} />
 			) : (
 				<Datagrid>
-					<TextField source="id" />
+					<NumberField label="id" source="id_deliverer" />
 					<TextField source="name" />
 					<EditButton />
 				</Datagrid>
@@ -36,7 +37,7 @@ const DelivererTitle = ({ record }) => {
 export const DelivererEdit = (props) => (
 	<Edit title={<DelivererTitle />} {...props}>
 		<SimpleForm>
-			<TextInput source="id" />
+			<NumberField label="id" disabled source="id_deliverer" />
 			<TextInput source="name" />
 		</SimpleForm>
 	</Edit>

@@ -50,9 +50,17 @@ import {
 	ItemEdit,
 	ItemCreate,
 } from "./components/otherEntities/items";
-import { CategoryList } from "./components/otherEntities/categories";
+import {
+	CategoryList,
+	CategoryEdit,
+	CategoryCreate,
+} from "./components/otherEntities/categories";
 import { Size_typeList } from "./components/otherEntities/size_types";
-import { GenderList } from "./components/otherEntities/genders";
+import {
+	GenderList,
+	GenderEdit,
+	GenderCreate,
+} from "./components/otherEntities/genders";
 import {
 	SizeList,
 	SizeEdit,
@@ -161,9 +169,21 @@ const App = () => {
 				create={ItemCreate}
 				icon={AddShoppingCartIcon}
 			/>
-			<Resource name="categories" list={CategoryList} icon={ArrowForwardIcon} />
+			<Resource
+				name="categories"
+				list={CategoryList}
+				edit={CategoryEdit}
+				create={CategoryCreate}
+				icon={ArrowForwardIcon}
+			/>
 			<Resource name="size_types" list={Size_typeList} icon={FormatSizeIcon} />
-			<Resource name="genders" list={GenderList} icon={WcIcon} />
+			<Resource
+				name="genders"
+				list={GenderList}
+				edit={GenderEdit}
+				create={GenderCreate}
+				icon={WcIcon}
+			/>
 			<Resource
 				name="sizes"
 				list={SizeList}
@@ -177,7 +197,6 @@ const App = () => {
 				edit={OfferEdit}
 				icon={ListIcon}
 			/>
-			{/*  */}
 			<Resource
 				name="users"
 				list={UserList}

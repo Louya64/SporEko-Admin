@@ -5,11 +5,13 @@ import {
 	SimpleList,
 	Datagrid,
 	TextField,
+	NumberField,
 	EditButton,
 	Edit,
 	Create,
 	SimpleForm,
 	TextInput,
+	NumberInput,
 } from "react-admin";
 
 export const ConditionList = (props) => {
@@ -20,7 +22,7 @@ export const ConditionList = (props) => {
 				<SimpleList primaryText={(record) => record.name} />
 			) : (
 				<Datagrid>
-					<TextField source="id" />
+					<NumberField label="id" source="id_condition" />
 					<TextField source="name" />
 					<EditButton />
 				</Datagrid>
@@ -36,7 +38,7 @@ const ConditionTitle = ({ record }) => {
 export const ConditionEdit = (props) => (
 	<Edit title={<ConditionTitle />} {...props}>
 		<SimpleForm>
-			<TextInput source="id" />
+			<NumberInput label="id" disabled source="id_condition" />
 			<TextInput source="name" />
 		</SimpleForm>
 	</Edit>
