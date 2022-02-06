@@ -113,7 +113,6 @@ export default {
 						});
 				});
 		}
-		console.log(params.data);
 		return axios({
 			method: "post",
 			url: `${apiUrl}/${resource}`,
@@ -121,7 +120,6 @@ export default {
 			withCredentials: true,
 		})
 			.then((recordCreated) => {
-				console.log(recordCreated);
 				return recordCreated;
 			})
 			.catch((err) => alert(err.response.data.message));

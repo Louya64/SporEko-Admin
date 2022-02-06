@@ -14,10 +14,7 @@ import {
 	EditButton,
 	Edit,
 	SimpleForm,
-	ReferenceInput,
-	SelectInput,
 	NumberInput,
-	DateInput,
 } from "react-admin";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -55,36 +52,8 @@ export const OfferList = (props) => {
 					<ReferenceField source="id_item" reference="items">
 						<TextField source="name" />
 					</ReferenceField>
-					{/* <ReferenceField source="id_brand" reference="brands">
-						<TextField source="name" />
-					</ReferenceField> */}
-					{/* <ReferenceField source="id_textile" reference="textiles">
-						<TextField source="name" />
-					</ReferenceField> */}
-					{/* <ReferenceField source="id_size" reference="sizes">
-						<>
-							<TextField source="size_int" />/
-							<TextField source="size_eu" />/
-							<TextField source="size_uk" />/
-							<TextField source="age_child" />
-						</>
-					</ReferenceField> */}
-					{/* <ReferenceField source="id_color1" reference="colors">
-						<TextField source="name" />
-					</ReferenceField>
-					<ReferenceField source="id_color2" reference="colors">
-						<TextField source="name" />
-					</ReferenceField> */}
-					{/* <ReferenceField source="id_condition" reference="conditions">
-						<TextField source="name" />
-					</ReferenceField> */}
 					<NumberField source="price" />
-					{/* <NumberField source="weight" /> */}
-					{/* <ReferenceField source="id_user_buyer" reference="users">
-						<TextField source="pseudo" />
-					</ReferenceField> */}
 					<TextField source="purchase_date" />
-					{/* <NumberField source="hand_delivery" /> */}
 					<BooleanNumField source="is_archived" />
 					<BooleanNumField source="is_draft" />
 					<EditButton />
