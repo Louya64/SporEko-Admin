@@ -17,7 +17,7 @@ import {
 	SelectInput,
 } from "react-admin";
 
-export const Deliverer_priceList = (props) => {
+export const DelivererPriceList = (props) => {
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 	return (
 		<List {...props}>
@@ -40,12 +40,12 @@ export const Deliverer_priceList = (props) => {
 	);
 };
 
-const Deliverer_priceTitle = ({ record }) => {
+const DelivererPriceTitle = ({ record }) => {
 	return <span>Prix des livreurs {record ? `"${record.name}"` : ""}</span>;
 };
 
-export const Deliverer_priceEdit = (props) => (
-	<Edit title={<Deliverer_priceTitle />} {...props}>
+export const DelivererPriceEdit = (props) => (
+	<Edit title={<DelivererPriceTitle />} {...props}>
 		<SimpleForm>
 			<NumberInput label="id" disabled source="id_deliverer_price" />
 			<TextInput source="name" />
@@ -59,7 +59,7 @@ export const Deliverer_priceEdit = (props) => (
 	</Edit>
 );
 
-export const Deliverer_priceCreate = (props) => (
+export const DelivererPriceCreate = (props) => (
 	<Create {...props}>
 		<SimpleForm>
 			<TextInput source="name" />

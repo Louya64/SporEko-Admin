@@ -7,7 +7,7 @@ const Dashboard = () => {
 			<CardHeader title="Bienvenue sur l'admin !" />
 			<CardContent>
 				Il vous sera possible de voir, ajouter, modifier et supprimer les
-				éléments de votre base de donnée
+				éléments de votre base de données
 			</CardContent>
 		</Card>
 	);
