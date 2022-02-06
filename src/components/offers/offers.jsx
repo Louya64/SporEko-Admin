@@ -1,22 +1,32 @@
 import * as React from "react";
 import { useMediaQuery } from "@material-ui/core";
 import BooleanNumField from "../BooleanNumField";
+import RichTextInput from "ra-input-rich-text";
 import {
 	List,
 	SimpleList,
 	Datagrid,
 	TextField,
 	NumberField,
+	DateField,
 	ReferenceField,
+	ImageField,
 	EditButton,
 	Edit,
 	SimpleForm,
-	TextInput,
 	ReferenceInput,
 	SelectInput,
 	NumberInput,
 	DateInput,
 } from "react-admin";
+import { withStyles } from "@material-ui/core/styles";
+
+const CustomTitleField = ({ record }) => {
+	let str = record.title;
+	return record ? (
+		<span>{str.length > 15 ? str.slice(0, 15) + "..." : str}</span>
+	) : null;
+};
 
 export const OfferList = (props) => {
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -27,13 +37,11 @@ export const OfferList = (props) => {
 			) : (
 				<Datagrid>
 					<NumberField label="id" source="id_offer" />
-					<TextField source="creation_date" />
+					<DateField source="creation_date" />
 					<ReferenceField source="id_user_seller" reference="users">
 						<TextField source="pseudo" />
 					</ReferenceField>
-					{/* <TextField source="picture1" /> */}
-					<TextField source="title" />
-					<TextField source="description" />
+					<CustomTitleField source="title" />
 					<ReferenceField source="id_sport" reference="sports">
 						<TextField source="name" />
 					</ReferenceField>
@@ -47,36 +55,36 @@ export const OfferList = (props) => {
 					<ReferenceField source="id_item" reference="items">
 						<TextField source="name" />
 					</ReferenceField>
-					<ReferenceField source="id_brand" reference="brands">
+					{/* <ReferenceField source="id_brand" reference="brands">
 						<TextField source="name" />
-					</ReferenceField>
-					<ReferenceField source="id_textile" reference="textiles">
+					</ReferenceField> */}
+					{/* <ReferenceField source="id_textile" reference="textiles">
 						<TextField source="name" />
-					</ReferenceField>
-					<ReferenceField source="id_size" reference="sizes">
+					</ReferenceField> */}
+					{/* <ReferenceField source="id_size" reference="sizes">
 						<>
 							<TextField source="size_int" />/
 							<TextField source="size_eu" />/
 							<TextField source="size_uk" />/
 							<TextField source="age_child" />
 						</>
-					</ReferenceField>
-					<ReferenceField source="id_color1" reference="colors">
+					</ReferenceField> */}
+					{/* <ReferenceField source="id_color1" reference="colors">
 						<TextField source="name" />
 					</ReferenceField>
 					<ReferenceField source="id_color2" reference="colors">
 						<TextField source="name" />
-					</ReferenceField>
-					<ReferenceField source="id_condition" reference="conditions">
+					</ReferenceField> */}
+					{/* <ReferenceField source="id_condition" reference="conditions">
 						<TextField source="name" />
-					</ReferenceField>
+					</ReferenceField> */}
 					<NumberField source="price" />
-					<NumberField source="weight" />
-					<ReferenceField source="id_user_buyer" reference="users">
+					{/* <NumberField source="weight" /> */}
+					{/* <ReferenceField source="id_user_buyer" reference="users">
 						<TextField source="pseudo" />
-					</ReferenceField>
+					</ReferenceField> */}
 					<TextField source="purchase_date" />
-					<NumberField source="hand_delivery" />
+					{/* <NumberField source="hand_delivery" /> */}
 					<BooleanNumField source="is_archived" />
 					<BooleanNumField source="is_draft" />
 					<EditButton />
@@ -89,58 +97,85 @@ export const OfferList = (props) => {
 const OfferTitle = ({ record }) => {
 	return <span>Annonces {record ? `"${record.name}"` : ""}</span>;
 };
+const styles = {
+	image: { maxHeight: "2.5rem" },
+};
 
-export const OfferEdit = (props) => (
+export const OfferEdit = withStyles(styles)(({ classes, ...props }) => (
 	<Edit title={<OfferTitle />} {...props}>
 		<SimpleForm>
-			<NumberInput label="id" source="id_offer" />
-			<TextInput source="creation_date" />
-			<ReferenceInput source="id_user_seller" reference="users">
-				<SelectInput optionText="pseudo" />
-			</ReferenceInput>
-			{/* <TextInput source="picture1" /> */}
-			<TextInput source="title" />
-			<TextInput source="description" />
-			<ReferenceInput source="id_sport" reference="sports">
-				<SelectInput source="name" />
-			</ReferenceInput>
-			<ReferenceInput source="id_gender" reference="genders">
-				<SelectInput optionText="adult_name" />
-			</ReferenceInput>
-			<NumberInput source="is_child" />
-			<ReferenceInput source="id_category" reference="categories">
-				<SelectInput source="name" />
-			</ReferenceInput>
-			<ReferenceInput source="id_item" reference="items">
-				<SelectInput source="name" />
-			</ReferenceInput>
-			<ReferenceInput source="id_brand" reference="brands">
-				<SelectInput source="name" />
-			</ReferenceInput>
-			<ReferenceInput source="id_textile" reference="textiles">
-				<SelectInput source="name" />
-			</ReferenceInput>
-			<ReferenceInput source="id_size" reference="sizes">
-				<SelectInput optionText="size_eu" />
-			</ReferenceInput>
-			<ReferenceInput source="id_color1" reference="colors">
-				<SelectInput source="name" />
-			</ReferenceInput>
-			<ReferenceInput source="id_color2" reference="colors">
-				<SelectInput source="name" />
-			</ReferenceInput>
-			<ReferenceInput source="id_condition" reference="conditions">
-				<SelectInput source="name" />
-			</ReferenceInput>
-			<NumberInput source="price" />
-			<NumberInput source="weight" />
-			<ReferenceInput source="id_user_buyer" reference="users">
-				<SelectInput optionText="pseudo" />
-			</ReferenceInput>
-			<DateInput source="purchase_date" />
-			<NumberInput source="hand_delivery" />
+			<NumberField label="id" disabled source="id_offer" />
+			<ImageField source="picture1" title="name" classes={classes} />
+			<ImageField source="picture2" title="name" classes={classes} />
+			<ImageField source="picture3" title="name" classes={classes} />
+			<ImageField source="picture4" title="name" classes={classes} />
+			<ImageField source="picture5" title="name" classes={classes} />
+			<ImageField source="picture6" title="name" classes={classes} />
+			<ImageField source="picture7" title="name" classes={classes} />
+			<ImageField source="picture8" title="name" classes={classes} />
+			<ImageField source="picture9" title="name" classes={classes} />
+			<ImageField source="picture10" title="name" classes={classes} />
+			<ImageField source="picture11" title="name" classes={classes} />
+			<ImageField source="picture12" title="name" classes={classes} />
+			<ImageField source="picture13" title="name" classes={classes} />
+			<ImageField source="picture14" title="name" classes={classes} />
+			<ImageField source="picture15" title="name" classes={classes} />
+			<ImageField source="picture16" title="name" classes={classes} />
+			<ImageField source="picture17" title="name" classes={classes} />
+			<ImageField source="picture18" title="name" classes={classes} />
+			<ImageField source="picture19" title="name" classes={classes} />
+			<ImageField source="picture20" title="name" classes={classes} />
+			<DateField source="creation_date" />
+			<ReferenceField source="id_user_seller" reference="users">
+				<TextField source="pseudo" />
+			</ReferenceField>
+			<RichTextInput source="title" />
+			<RichTextInput source="description" />
+			<ReferenceField source="id_sport" reference="sports">
+				<TextField source="name" />
+			</ReferenceField>
+			<ReferenceField source="id_gender" disable reference="genders">
+				<TextField source="adult_name" />
+			</ReferenceField>
+			<NumberInput disabled source="is_child" />
+			<ReferenceField source="id_category" reference="categories">
+				<TextField source="name" />
+			</ReferenceField>
+			<ReferenceField source="id_item" reference="items">
+				<TextField source="name" />
+			</ReferenceField>
+			<ReferenceField source="id_brand" reference="brands">
+				<TextField source="name" />
+			</ReferenceField>
+			<ReferenceField source="id_textile" reference="textiles">
+				<TextField source="name" />
+			</ReferenceField>
+			<ReferenceField source="id_size" reference="sizes">
+				<>
+					<TextField source="size_int" />/
+					<TextField source="size_eu" />/
+					<TextField source="size_uk" />/
+					<TextField source="age_child" />
+				</>
+			</ReferenceField>
+			<ReferenceField source="id_color1" reference="colors">
+				<TextField source="name" />
+			</ReferenceField>
+			<ReferenceField source="id_color2" reference="colors">
+				<TextField source="name" />
+			</ReferenceField>
+			<ReferenceField source="id_condition" reference="conditions">
+				<TextField source="name" />
+			</ReferenceField>
+			<NumberField source="price" />
+			<NumberField source="weight" />
+			<ReferenceField source="id_user_buyer" disable reference="users">
+				<TextField source="pseudo" />
+			</ReferenceField>
+			<DateField source="purchase_date" />
+			<NumberField source="hand_delivery" />
 			<NumberInput source="is_archived" />
 			<NumberInput source="is_draft" />
 		</SimpleForm>
 	</Edit>
-);
+));

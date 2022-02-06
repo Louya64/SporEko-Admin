@@ -106,19 +106,14 @@ export default {
 						withCredentials: true,
 					})
 						.then((recordCreated) => {
-							return {
-								data: {
-									id: recordCreated[Object.keys(recordCreated)[0]],
-									...recordCreated,
-								},
-							};
+							return recordCreated;
 						})
 						.catch((err) => {
 							alert(err.response.data.message);
 						});
 				});
 		}
-
+		console.log(params.data);
 		return axios({
 			method: "post",
 			url: `${apiUrl}/${resource}`,
@@ -126,12 +121,8 @@ export default {
 			withCredentials: true,
 		})
 			.then((recordCreated) => {
-				return {
-					data: {
-						id: recordCreated[Object.keys(recordCreated)[0]],
-						...recordCreated,
-					},
-				};
+				console.log(recordCreated);
+				return recordCreated;
 			})
 			.catch((err) => alert(err.response.data.message));
 	},
@@ -191,8 +182,8 @@ export default {
 			});
 	},
 
-	delete: (resource, params) =>
-		axios({
+	delete: (resource, params) => {
+		return axios({
 			method: "delete",
 			url: `${apiUrl}/${resource}/${params.id}`,
 			withCredentials: true,
@@ -200,7 +191,8 @@ export default {
 			.then((recordDeleted) => ({
 				data: recordDeleted.data,
 			}))
-			.catch((err) => alert(err.response.data.message)),
+			.catch((err) => alert(err.response.data.message));
+	},
 
 	deleteMany: (resource, params) => {
 		const query = {

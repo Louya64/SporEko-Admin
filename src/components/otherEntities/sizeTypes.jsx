@@ -8,7 +8,7 @@ import {
 	NumberField,
 } from "react-admin";
 
-export const Size_typeList = (props) => {
+export const SizeTypeList = (props) => {
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 	return (
 		<List {...props}>

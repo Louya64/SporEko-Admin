@@ -41,10 +41,10 @@ import {
 	TextileCreate,
 } from "./components/otherEntities/textiles";
 import {
-	Deliverer_priceList,
-	Deliverer_priceEdit,
-	Deliverer_priceCreate,
-} from "./components/deliverers/deliverer_prices";
+	DelivererPriceList,
+	DelivererPriceEdit,
+	DelivererPriceCreate,
+} from "./components/deliverers/delivererPrices";
 import {
 	ItemList,
 	ItemEdit,
@@ -55,7 +55,7 @@ import {
 	CategoryEdit,
 	CategoryCreate,
 } from "./components/otherEntities/categories";
-import { Size_typeList } from "./components/otherEntities/size_types";
+import { SizeTypeList } from "./components/otherEntities/sizeTypes";
 import {
 	GenderList,
 	GenderEdit,
@@ -156,10 +156,10 @@ const App = () => {
 				icon={FilterVintageIcon}
 			/>
 			<Resource
-				name="deliverer_prices"
-				list={Deliverer_priceList}
-				edit={Deliverer_priceEdit}
-				create={Deliverer_priceCreate}
+				name="delivererPrices"
+				list={DelivererPriceList}
+				edit={DelivererPriceEdit}
+				create={DelivererPriceCreate}
 				icon={EuroIcon}
 			/>
 			<Resource
@@ -176,7 +176,7 @@ const App = () => {
 				create={CategoryCreate}
 				icon={ArrowForwardIcon}
 			/>
-			<Resource name="size_types" list={Size_typeList} icon={FormatSizeIcon} />
+			<Resource name="sizeTypes" list={SizeTypeList} icon={FormatSizeIcon} />
 			<Resource
 				name="genders"
 				list={GenderList}

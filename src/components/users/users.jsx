@@ -34,6 +34,8 @@ export const UserList = (props) => {
 			) : (
 				<Datagrid>
 					<NumberField label="id" source="id_user" />
+					<BooleanNumField source="is_admin" />
+					<BooleanNumField source="is_archived" />
 					<TextField source="pseudo" />
 					<TextField source="lastname" />
 					<TextField source="firstname" />
