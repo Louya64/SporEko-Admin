@@ -156,7 +156,7 @@ const App = () => {
 				icon={FilterVintageIcon}
 			/>
 			<Resource
-				name="delivererPrices"
+				name="deliverer_prices"
 				list={DelivererPriceList}
 				edit={DelivererPriceEdit}
 				create={DelivererPriceCreate}
@@ -176,7 +176,7 @@ const App = () => {
 				create={CategoryCreate}
 				icon={ArrowForwardIcon}
 			/>
-			<Resource name="sizeTypes" list={SizeTypeList} icon={FormatSizeIcon} />
+			<Resource name="size_types" list={SizeTypeList} icon={FormatSizeIcon} />
 			<Resource
 				name="genders"
 				list={GenderList}

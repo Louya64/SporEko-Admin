@@ -31,7 +31,7 @@ export const SizeList = (props) => {
 						<TextField source="adult_name" />
 					</ReferenceField>
 					<BooleanNumField source="is_child" />
-					<ReferenceField source="id_size_type" reference="sizeTypes">
+					<ReferenceField source="id_size_type" reference="size_types">
 						<TextField source="name" />
 					</ReferenceField>
 					<TextField source="size_int" />
@@ -68,7 +68,7 @@ export const SizeEdit = (props) => (
 				<SelectInput optionText="adult_name" />
 			</ReferenceInput>
 			<NumberInput source="is_child" />
-			<ReferenceInput source="id_size_type" reference="sizeTypes">
+			<ReferenceInput source="id_size_type" reference="size_types">
 				<SelectInput source="name" />
 			</ReferenceInput>
 			<TextInput source="size_int" />
@@ -88,7 +88,7 @@ export const SizeCreate = (props) => (
 				<SelectInput optionText="adult_name" />
 			</ReferenceInput>
 			<NumberInput source="is_child" />
-			<ReferenceInput source="id_size_type" reference="sizeTypes">
+			<ReferenceInput source="id_size_type" reference="size_types">
 				<SelectInput source="name" />
 			</ReferenceInput>
 			<TextInput source="size_int" />
