@@ -52,7 +52,6 @@ export const SportEdit = (props) => (
 			<ImageInput source="icon" label="Related pictures" accept="image/*">
 				<ImageField source="icon" title="name" />
 			</ImageInput>
-			<TextInput source="icon" />
 		</SimpleForm>
 	</Edit>
 );

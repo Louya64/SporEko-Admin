@@ -30,7 +30,7 @@ export const ItemList = (props) => {
 					<ReferenceField source="id_category" reference="categories">
 						<TextField source="name" />
 					</ReferenceField>
-					<ReferenceField source="id_size_type" reference="sizeTypes">
+					<ReferenceField source="id_size_type" reference="size_types">
 						<TextField source="name" />
 					</ReferenceField>
 					<EditButton />
@@ -52,7 +52,7 @@ export const ItemEdit = (props) => (
 			<ReferenceInput source="id_category" reference="categories">
 				<SelectInput source="name" />
 			</ReferenceInput>
-			<ReferenceInput source="id_size_type" reference="sizeTypes">
+			<ReferenceInput source="id_size_type" reference="size_types">
 				<SelectInput source="name" />
 			</ReferenceInput>
 		</SimpleForm>
@@ -66,7 +66,7 @@ export const ItemCreate = (props) => (
 			<ReferenceInput source="id_category" reference="categories">
 				<SelectInput source="name" />
 			</ReferenceInput>
-			<ReferenceInput source="id_size_type" reference="sizeTypes">
+			<ReferenceInput source="id_size_type" reference="size_types">
 				<SelectInput source="name" />
 			</ReferenceInput>
 		</SimpleForm>

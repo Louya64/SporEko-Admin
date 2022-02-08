@@ -126,7 +126,7 @@ export default {
 	},
 
 	update: (resource, params) => {
-		if (params.data.icon) {
+		if (params.data.icon !== params.previousData.icon) {
 			const newIcon = params.data.icon.rawFile;
 			const formData = new FormData();
 			formData.append("imageSport", newIcon);
@@ -136,7 +136,7 @@ export default {
 				data: formData,
 				withCredentials: true,
 				headers: {
-					"Content-Type": "multipart/form-data",
+					"Content-Type": "multipart/form-data", 
 				},
 			})
 				.then((res) => res.data)

@@ -60,7 +60,7 @@ export default {
 				name: "Nom",
 			},
 		},
-		delivererPrices: {
+		deliverer_prices: {
 			name: "Prix des livreurs |||| Prix des livreurs",
 			fields: {
 				name: "Nom",
@@ -84,7 +84,7 @@ export default {
 				name: "Nom",
 			},
 		},
-		sizeTypes: {
+		size_types: {
 			name: "Type de taille |||| Types de taille",
 			fields: {
 				name: "Nom",
