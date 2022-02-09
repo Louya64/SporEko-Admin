@@ -46,6 +46,7 @@ export default {
 			name: "Livreur |||| Livreurs",
 			fields: {
 				name: "Nom",
+				weight_condition: "poids obligatoire ?",
 			},
 		},
 		sports: {
@@ -129,7 +130,6 @@ export default {
 				weight: "Poids",
 				id_user_buyer: "Acheteur",
 				purchase_date: "Date d'achat",
-				hand_delivery: "Remise en main propre ?",
 				is_archived: "Archivé ?",
 				is_draft: "Brouillon ?",
 				picture2: "Photo 2",

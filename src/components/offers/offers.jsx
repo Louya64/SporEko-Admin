@@ -142,7 +142,6 @@ export const OfferEdit = withStyles(styles)(({ classes, ...props }) => (
 				<TextField source="pseudo" />
 			</ReferenceField>
 			<DateField source="purchase_date" />
-			<NumberField source="hand_delivery" />
 			<NumberInput source="is_archived" />
 			<NumberInput source="is_draft" />
 		</SimpleForm>
