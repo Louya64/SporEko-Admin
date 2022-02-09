@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useMediaQuery } from "@material-ui/core";
+import BooleanNumField from "../BooleanNumField";
 import {
 	List,
 	SimpleList,
@@ -11,6 +12,7 @@ import {
 	Create,
 	SimpleForm,
 	TextInput,
+	NumberInput,
 } from "react-admin";
 
 export const DelivererList = (props) => {
@@ -23,6 +25,7 @@ export const DelivererList = (props) => {
 				<Datagrid>
 					<NumberField label="id" source="id_deliverer" />
 					<TextField source="name" />
+					<BooleanNumField source="weight_condition" />
 					<EditButton />
 				</Datagrid>
 			)}
@@ -39,6 +42,7 @@ export const DelivererEdit = (props) => (
 		<SimpleForm>
 			<NumberField label="id" disabled source="id_deliverer" />
 			<TextInput source="name" />
+			<NumberInput source="weight_condition" />
 		</SimpleForm>
 	</Edit>
 );
@@ -47,6 +51,7 @@ export const DelivererCreate = (props) => (
 	<Create {...props}>
 		<SimpleForm>
 			<TextInput source="name" />
+			<NumberInput source="weight_condition" />
 		</SimpleForm>
 	</Create>
 );
